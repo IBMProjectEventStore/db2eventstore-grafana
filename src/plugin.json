@@ -1,0 +1,35 @@
+{
+  "name": "IBM Db2 Event Store",
+  "id": "ibm-db2-event-store",
+  "type": "datasource",
+
+  "partials": {
+    "config": "public/plugins/ibm-db2-event-store/partials/config.html"
+  },
+
+  "metrics": true,
+  "annotations": true,
+
+  "info": {
+    "description": "IBM Db2 Event Store datasource",
+    "author": {
+      "name": "IBM",
+      "url": "http://ibm.com"
+    },
+    "logos": {
+      "small": "img/es_circle_blu.svg",
+      "large": "img/es_circle_blu.svg"
+    },
+    "links": [
+      {"name": "GitHub", "url": "https://github.com/cg8/db2eventstore-grafana"},
+      {"name": "Apache License 2.0", "url": "https://github.com/cg8/db2eventstore-grafana/blob/master/LICENSE"}
+    ],
+    "version": "1.0.0",
+    "updated": "2018-02-09"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}
