@@ -7,13 +7,15 @@ export class EventStoreQueryCtrl extends QueryCtrl {
     super($scope, $injector);
 
     this.scope = $scope;
-    this.target.selectedTable;
-    this.target.selectedColumn;
-    this.target.queryString;
-    this.target.selectedTimestamp;
-    this.target.readOption = 'SnapshotAny';
-    this.target.tables = [];
-    this.target.columns = [];
+    this.target.selectedTable = this.target.selectedTable || null;
+    this.target.equalPredicate = this.target.equalPredicate  || null;
+    this.target.equalPredicateValue = this.target.equalPredicateValue  || null;
+    this.target.selectedColumn = this.target.selectedColumn || null;
+    this.target.queryString = this.target.queryString || null;
+    this.target.selectedTimestamp = this.target.selectedTimestamp || null;
+    this.target.readOption = this.target.readOption || 'SnapshotAny';
+    this.target.tables = this.target.tables || [];
+    this.target.columns = this.target.columns || [];
     this.target.target = this.target.target || 'select metric';
     this.target.type = this.target.type || 'timeseries';
     this.target.resultFormats = [{ name: 'Time series', value: 'time_series' }, { name: 'Table', value: 'table' }];

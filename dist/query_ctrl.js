@@ -67,13 +67,15 @@ System.register(['app/plugins/sdk', './css/query-editor.css!'], function (_expor
           var _this = _possibleConstructorReturn(this, (EventStoreQueryCtrl.__proto__ || Object.getPrototypeOf(EventStoreQueryCtrl)).call(this, $scope, $injector));
 
           _this.scope = $scope;
-          _this.target.selectedTable;
-          _this.target.selectedColumn;
-          _this.target.queryString;
-          _this.target.selectedTimestamp;
-          _this.target.readOption = 'SnapshotAny';
-          _this.target.tables = [];
-          _this.target.columns = [];
+          _this.target.selectedTable = _this.target.selectedTable || null;
+          _this.target.equalPredicate = _this.target.equalPredicate || null;
+          _this.target.equalPredicateValue = _this.target.equalPredicateValue || null;
+          _this.target.selectedColumn = _this.target.selectedColumn || null;
+          _this.target.queryString = _this.target.queryString || null;
+          _this.target.selectedTimestamp = _this.target.selectedTimestamp || null;
+          _this.target.readOption = _this.target.readOption || 'SnapshotAny';
+          _this.target.tables = _this.target.tables || [];
+          _this.target.columns = _this.target.columns || [];
           _this.target.target = _this.target.target || 'select metric';
           _this.target.type = _this.target.type || 'timeseries';
           _this.target.resultFormats = [{ name: 'Time series', value: 'time_series' }, { name: 'Table', value: 'table' }];

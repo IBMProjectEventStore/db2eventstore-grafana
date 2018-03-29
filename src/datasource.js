@@ -11,7 +11,7 @@ export class EventStoreDatasource {
      * Capture the settings information from the Data Source panel
      */
     if (instanceSettings !== undefined) {
-      this.databaseParameter = databaseField + instanceSettings.jsonData.selectedDatabase;
+      this.databaseParameter = databaseField + instanceSettings.jsonData.databases[instanceSettings.jsonData.selectedDatabase].name;
       this.securityToken = instanceSettings.jsonData.securityToken;
       this.type = instanceSettings.type;
       if (_.endsWith(instanceSettings.jsonData.url, '/')) {
@@ -27,6 +27,10 @@ export class EventStoreDatasource {
     this.q = $q;
     this.backendSrv = backendSrv;
     this.templateSrv = templateSrv;
+
+    /**
+     * Supported header, including the required security token
+      */
     this.headers = {
       'Authorization': instanceSettings.jsonData.securityToken,
       'cache-control': 'no-cache',
@@ -161,10 +165,6 @@ export class EventStoreDatasource {
   }
 
   buildQueryParameters(options) {
-    //remove placeholder targets
-  //  options.targets = _.filter(options.targets, target => {
-  //    return target.target !== 'select metric';
-  //  });
 
     var targets = _.map(options.targets, target => {
       return {
@@ -173,6 +173,8 @@ export class EventStoreDatasource {
         select: target.selectedColumn,
         from: target.selectedTable,
         selectedTable: target.selectedTable,
+        equalPredicate: target.equalPredicate,
+        equalPredicateValue: target.equalPredicateValue,
         ts: target.selectedTimestamp,
         readOption: target.readOption,
         queryType: target.type || 'timeseries'

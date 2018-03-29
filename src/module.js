@@ -15,5 +15,5 @@ export {
   EventStoreConfigCtrl as ConfigCtrl,
   GenericQueryOptionsCtrl as QueryOptionsCtrl,
   GenericAnnotationsQueryCtrl as AnnotationsQueryCtrl,
-  axios as axios
+  axios as axios,
 };

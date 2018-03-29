@@ -39,6 +39,15 @@
 
 			<div class="gf-form">
 				<label class="gf-form-label query-keyword">WHERE</label>
+				<div class="gf-form-select-wrapper">
+					<select class="gf-form-input gf-size-auto" ng-model="ctrl.target.equalPredicate" ng-options="v.name as v.name for v in ctrl.target.columns" ng-change="ctrl.refresh()">
+						</select>
+				</div>
+				<label class="gf-form-label query-keyword">=</label>
+				<input type="text" class="gf-form-input" ng-model="ctrl.target.equalPredicateValue"
+							 spellcheck='false' placeholder="Predicate value" data-min-length=0 data-items=100
+							ng-blur="ctrl.targetBlur()">
+				</input>
 			</div>
 
 			<div class="gf-form" ng-repeat="segment in ctrl.tagSegments">
