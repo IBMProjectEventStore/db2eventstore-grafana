@@ -35,9 +35,9 @@ sudo service grafana-server start
 * Validate that Grafana correctly comes up in a Web Browser
 http://${MASTER1_IP}:3000/login [admin/admin]
 
-* Download the archive from the GIT repo and place it in your home directory on {MASTER1_IP}
+* Download the archive from the GIT repo, unzip it, and place it in your home directory on {MASTER1_IP}
 ```bash
-wget ...
+wget https://github.com/IBMProjectEventStore/db2eventstore-grafana/files/2019003/db2-event-store-grafana.tar.zip
 ```
 
 ## Install the IBM Db2 Event Store plugin for Grafana
