@@ -14,8 +14,16 @@ The IBM Db2 Event Store backend implements 2 urls:
 
 * An [IBM Db2 Event Store Enterprise Edition cluster](https://www.ibm.com/us-en/marketplace/db2-event-store)
 
-## Installation of Graphana within an IBM Db2 Event Cluster
+## Installation of Grafana within an IBM Db2 Event Cluster
 
+In an enterprise configuration, the IBM Db2 Event Store is installed on 3 nodes. One of those node is going to be arbitrary referenced as MASTER1_IP.
+
+* SSH to the Master 1 node
+```bash
+ssh root@${MASTER1_IP}
+```
+
+* Install Grafana on that node
 ```bash
 sudo yum install -y wget
 sudo wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.0.0-1.x86_64.rpm
@@ -24,11 +32,15 @@ sudo rpm -Uvh grafana-5.0.0-1.x86_64.rpm
 sudo service grafana-server start
 ```
 
-## Install the Grafana Plugin within an IBM Db2 Event Cluster
-mkdir -p /usr/local/var/lib/grafana/plugins/db2-event-store
-cd /usr/local/var/lib/grafana/plugins/db2-event-store
-wget ...
-cp /usr/local/var/lib/grafana/plugins/db2-event-store/db2-event-store-grafana.tar .
+* Validate that Grafana correctly comes up in a Web Browser
+http://${MASTER1_IP}:3000/login [admin/admin]
+
+* Download the archive from the GIT repo, unzip it, and place it in your home directory on {MASTER1_IP}
+```bash
+wget https://github.com/IBMProjectEventStore/db2eventstore-grafana/files/2019003/db2-event-store-grafana.tar.zip
+```
+
+## Install the IBM Db2 Event Store plugin for Grafana
 
 ```bash
 GRAFANA=/var/lib/grafana
@@ -40,6 +52,6 @@ sudo tar -zxvf db2-event-store-grafana.tar
 sudo service grafana-server restart
 ```
 
-## Bring up the Graphana console
+## Add the IBM Db2 Event Store Data Source in the Grafana console
 
-## Establish a dashboard
+## Create a dashboard
