@@ -63,6 +63,16 @@ export class EventStoreConfigCtrl {
   }
 
   /**
+   * If the address is http, add a sample token to remain compatible
+   */
+  _assignBearerToken() {
+    var outerScope = this;
+    outerScope.current.jsonData.securityToken = 'bearer token'
+    outerScope.current.jsonData.headerConfig.headers['Authorization'] = outerScope.current.jsonData.securityToken
+    outerScope._getDatabasesList()
+  }
+
+  /**
    * Get and populate the database list
    */
   _getDatabasesList () {
@@ -102,7 +112,7 @@ export class EventStoreConfigCtrl {
       this._retrieveBearerToken();
     }
     else {
-      this._getDatabasesList();
+      this._assignBearerToken();
     }
   }
 }

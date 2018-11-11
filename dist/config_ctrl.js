@@ -98,6 +98,14 @@ System.register(["lodash", "./axios"], function (_export, _context) {
             });
           }
         }, {
+          key: "_assignBearerToken",
+          value: function _assignBearerToken() {
+            var outerScope = this;
+            outerScope.current.jsonData.securityToken = 'bearer token';
+            outerScope.current.jsonData.headerConfig.headers['Authorization'] = outerScope.current.jsonData.securityToken;
+            outerScope._getDatabasesList();
+          }
+        }, {
           key: "_getDatabasesList",
           value: function _getDatabasesList() {
             var outerScope = this;
@@ -131,7 +139,7 @@ System.register(["lodash", "./axios"], function (_export, _context) {
             if (_.startsWith(this.current.jsonData.url, 'https')) {
               this._retrieveBearerToken();
             } else {
-              this._getDatabasesList();
+              this._assignBearerToken();
             }
           }
         }]);
