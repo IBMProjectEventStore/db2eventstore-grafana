@@ -1,5 +1,7 @@
 # IBM Db2 Event Store Graphana visualization
 
+*Questions about this material*? Reach me on Twitter [@Loic Julien](https://twitter.com/loicjulien)
+
 The IBM Db2 Event Store is an in-memory database optimized for event-driven data processing and analysis. [Download the free developer edition or the enterprise edition](https://www.ibm.com/us-en/marketplace/db2-event-store)
 
 In order to visualize your data with Graphana, follow the steps below:
@@ -52,6 +54,4 @@ sudo tar -zxvf db2-event-store-grafana.tar
 sudo service grafana-server restart
 ```
 
-## Add the IBM Db2 Event Store Data Source in the Grafana console
-
-## Create a dashboard
+[@Loic Julien](https://twitter.com/loicjulien), [IBM Db2 Event Store](https://www.ibm.com/products/db2-event-store)
